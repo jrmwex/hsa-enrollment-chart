@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9021B76529E4875B002EA13A /* FloatingTextFieldString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9021B76429E4875B002EA13A /* FloatingTextFieldString.swift */; };
 		90CE003329E092EA00D0127B /* HsaEnrollmentChartApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CE003229E092EA00D0127B /* HsaEnrollmentChartApp.swift */; };
 		90CE003529E092EA00D0127B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CE003429E092EA00D0127B /* ContentView.swift */; };
 		90CE003729E092EC00D0127B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90CE003629E092EC00D0127B /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9021B76429E4875B002EA13A /* FloatingTextFieldString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTextFieldString.swift; sourceTree = "<group>"; };
 		90CE002F29E092EA00D0127B /* HsaEnrollmentChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HsaEnrollmentChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90CE003229E092EA00D0127B /* HsaEnrollmentChartApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HsaEnrollmentChartApp.swift; sourceTree = "<group>"; };
 		90CE003429E092EA00D0127B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				90CE003429E092EA00D0127B /* ContentView.swift */,
 				90CE005E29E0CE2D00D0127B /* MoneyCount.swift */,
 				90CE005C29E0B16100D0127B /* FloatingTextField.swift */,
+				9021B76429E4875B002EA13A /* FloatingTextFieldString.swift */,
 				90CE003629E092EC00D0127B /* Assets.xcassets */,
 				90CE003829E092EC00D0127B /* Preview Content */,
 			);
@@ -265,6 +268,7 @@
 			files = (
 				90CE005F29E0CE2D00D0127B /* MoneyCount.swift in Sources */,
 				90CE003529E092EA00D0127B /* ContentView.swift in Sources */,
+				9021B76529E4875B002EA13A /* FloatingTextFieldString.swift in Sources */,
 				90CE005D29E0B16100D0127B /* FloatingTextField.swift in Sources */,
 				90CE003329E092EA00D0127B /* HsaEnrollmentChartApp.swift in Sources */,
 			);

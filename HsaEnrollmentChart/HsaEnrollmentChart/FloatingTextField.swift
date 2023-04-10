@@ -10,22 +10,31 @@ import SwiftUI
 
 struct FloatingTextField: View {
     let title: String
-    let text: Binding<String>
+    let text: Binding<Float>
 
     var body: some View {
         ZStack(alignment: .leading) {
             Text(title)
                 .foregroundColor(Color(.placeholderText))
-                .offset(y: text.wrappedValue.isEmpty ? 0 : -25)
-                .scaleEffect(text.wrappedValue.isEmpty ? 1 : 0.8, anchor: .leading)
+                .offset(y: text.wrappedValue.isSignalingNaN ? 0 : -25)
+                .scaleEffect(text.wrappedValue.isSignalingNaN ? 1 : 0.8, anchor: .leading)
                 .font(.subheadline)
                 
-            TextField("", text: text) // give TextField an empty placeholder
+            TextField("", value: text, formatter: getNumberFormatter()) // give TextField an empty placeholder
         }
         .padding()
         .cornerRadius(20) /// make the background rounded
         .overlay( /// apply a rounded border
             RoundedRectangle(cornerRadius: 10)
                 .stroke(.gray, lineWidth: 1))
+    }
+    
+    func getNumberFormatter() -> NumberFormatter
+    {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale.current
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 0
+        return formatter
     }
 }

@@ -10,9 +10,9 @@ import Foundation
 struct MoneyCount : Identifiable {
         let id = UUID()
         let year: Date
-        let money: Int
+        let money: Float
     
-        init(year: String, money: Int) {
+        init(year: String, money: Float) {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy"
              
