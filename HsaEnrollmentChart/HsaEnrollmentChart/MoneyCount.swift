@@ -11,13 +11,15 @@ struct MoneyCount : Identifiable {
         let id = UUID()
         let year: Date
         let money: Float
+        let type: String
     
-        init(year: String, money: Float) {
+        init(year: String, money: Float, type: String) {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy"
              
            self.year = formatter.date(from: year) ?? Date.distantPast
            self.money = money
+           self.type = type
        }
     
     var weekdayString: String {
