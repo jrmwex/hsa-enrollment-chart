@@ -121,7 +121,7 @@ struct ContentView: View {
                                 self.annualProgress
                             }, set: { (newVal) in
                                 self.annualProgress = newVal
-                                self.sliderChanged()
+                                self.annualProgressChanged()
                             }), in: 0.0...7750.0) {
                             Text("Slider")
                         } minimumValueLabel: {
@@ -130,8 +130,18 @@ struct ContentView: View {
                             Text("$7,750").font(Font(uiFontFootnote))
                         }
                         HStack{
-                            FloatingTextField(title: "Monthly contribution", text: $monthlyProgress)
-                            FloatingTextField(title: "Annual contribution", text: $annualProgress)
+                            FloatingTextField(title: "Monthly contribution", text: Binding(get: {
+                                self.monthlyProgress
+                            }, set: { (newVal) in
+                                self.monthlyProgress = newVal
+                                self.monthlyProgressChanged()
+                            }))
+                            FloatingTextField(title: "Annual contribution", text: Binding(get: {
+                                self.annualProgress
+                            }, set: { (newVal) in
+                                self.annualProgress = newVal
+                                self.annualProgressChanged()
+                            }))
                         }.padding(.top, 16)
                     }
                     Group {
@@ -231,13 +241,25 @@ struct ContentView: View {
         return formatter
     }
     
-    func sliderChanged() {
+    func annualProgressChanged() {
         monthlyProgress = (annualProgress / 12)
         contributions = (annualProgress * 30)
         estExpenses = (annualProgress * 17.5)
         investments = (annualProgress * 22.4166666666667)
         totalWorth = ((contributions + investments) - estExpenses)
-        
+        calculateGraph()
+    }
+    
+    func monthlyProgressChanged() {
+        annualProgress = (monthlyProgress * 12)
+        contributions = (annualProgress * 30)
+        estExpenses = (annualProgress * 17.5)
+        investments = (annualProgress * 22.4166666666667)
+        totalWorth = ((contributions + investments) - estExpenses)
+        calculateGraph()
+    }
+    
+    func calculateGraph() {
         moneyYears = [
             MoneyCount(year: "2023", money: 0, type: "Extra savings"),
             MoneyCount(year: "2024", money: ((annualProgress * 0.416667) * 1), type: "Extra savings"),
